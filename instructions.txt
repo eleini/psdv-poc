@@ -1,0 +1,44 @@
+------INSTRUCTIONS------
+
+1. Download MySQL server package
+2. Open MySQL workbench and connect to your localhost (use the credentials in connector.js if you don't want to change
+anything in the code)
+3. create `psdv` database
+4. create following tables:
+
+CREATE TABLE `pub_authors` (
+  `pub_id` int NOT NULL AUTO_INCREMENT,
+  `doi` varchar(255) DEFAULT NULL,
+  `firstAuthor` text,
+  `secondAuthor` text,
+  PRIMARY KEY (`pub_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE `pub_types` (
+  `pub_id` int NOT NULL AUTO_INCREMENT,
+  `doi` varchar(255) DEFAULT NULL,
+  `publicationType` text,
+  PRIMARY KEY (`pub_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE `publication` (
+  `pub_id` int NOT NULL AUTO_INCREMENT,
+  `doi` text,
+  `publisher` text,
+  `url` text,
+  `title` longtext,
+  `language` text,
+  `date` text,
+  PRIMARY KEY (`pub_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
+
+5. go into this project and run npm install npm@latest
+6. then run npm install
+7. then run node connector.js
+8. when you see the following messages, then you can go back to your MySQL workbench 
+and see that 20 publications were loaded
+
+Connected!
+publications inserted
+pub_authors inserted
+pub_types inserted
